@@ -27,4 +27,11 @@ class AuditController
 
         return response()->json($audits);
     }
+
+    public function show(int $audit): JsonResponse
+    {
+        $audit = Audit::query()->findOrFail($audit);
+
+        return response()->json($audit);
+    }
 }
