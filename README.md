@@ -62,8 +62,11 @@ With this, a file called audit.php will be available in the settings directory, 
 
 If you want to temporarily disable audits, just insert in your .env: `AUDIT_ENABLED=false`.
 
-## Ignoring tables
+### Ignoring tables
 When installing and publishing the configuration file, you can insert tables that you want to ignore when performing the audit, just insert their names in the `skip` property.
+
+### Multiple schemas
+You can configure multiple database schemas by adding each of them to the `schemas` property in the settings.
 
 But remember you can only ignore these tables before running the `php artisan audit:install` command.
 

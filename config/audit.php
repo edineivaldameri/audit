@@ -10,4 +10,7 @@ return [
         'migrations',
         'public.migrations',
     ],
+    'schemas' => [
+        'public',
+    ],
 ];
