@@ -73,10 +73,12 @@ trait AuditTrigger
      */
     private function getAuditedTables(): array
     {
-
+        /** @var array<int, string> $schemas */
+        $schemas = config('audit.schemas', ['public']);
         $schemas = implode(', ', array_map(function ($schema) {
+            /** @var string $schema */
             return "'{$schema}'";
-        }, config('audit.schemas', ['public'])));
+        }, $schemas));
 
         $tables = DB::select('SELECT table_schema, table_name FROM information_schema.tables WHERE table_type = \'BASE TABLE\' AND table_schema IN (' . $schemas . ');');
 
